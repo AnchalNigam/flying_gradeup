@@ -33,8 +33,10 @@ export default class App extends Component {
       console.log(birdBottom);
     }
     document.addEventListener("keyup", control);
-  
-    function generateObstacle() {
+    document.getElementById("tap").addEventListener("click", function() {
+      jump();
+    });
+        function generateObstacle() {
       let obstacleLeft = 500;
       let randomHeight = Math.random() * 60;
        let obstacleBottom = randomHeight;
@@ -88,8 +90,9 @@ export default class App extends Component {
     }
   }
   render() {
-    return (
-      <div>
+    return <>
+      <div style={{display: 'flex', flexDirection: 'column', position: 'relative'}}>
+        <div style={{display: 'flex', flexDirection: 'column', position: 'relative'}}>
         <div className="border-left"></div>
   <div className="game-container">
       <div className="border-top"></div>
@@ -102,8 +105,14 @@ export default class App extends Component {
     <div className="ground-moving"></div>
   </div>
   <div className="border-right"></div>
-
+  
       </div>
-    )
+        <p 
+  style={{borderRadius: '100%', fontSize: '20px', backgroundColor: 'gray', color: 'black', 
+  padding: '30px', marginLeft: '40px'}} id="tap">Tap</p>
+        </div>
+       
+        
+    </>
   }
 }
