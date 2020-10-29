@@ -19,7 +19,7 @@ export default class App extends Component {
       bird.style.bottom = birdBottom + "px";
       bird.style.left = birdLeft + "px";
     }
-    let gameTimerId = setInterval(startGame, 20);
+    let gameTimerId = setInterval(startGame, 100);
   
     function control(e) {
       if (e.keyCode === 32) {
@@ -90,18 +90,18 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <div class="border-left"></div>
-  <div class="game-container">
-      <div class="border-top"></div>
-      <div class="sky">
+        <div className="border-left"></div>
+  <div className="game-container">
+      <div className="border-top"></div>
+      <div className="sky">
         
-          <div class="bird"></div>
+          <div className="bird"></div>
       </div>
   </div>
-  <div class="ground-container">
-    <div class="ground-moving"></div>
+  <div className="ground-container">
+    <div className="ground-moving"></div>
   </div>
-  <div class="border-right"></div>
+  <div className="border-right"></div>
 
       </div>
     )
