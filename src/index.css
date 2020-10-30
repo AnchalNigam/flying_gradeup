@@ -1,19 +1,34 @@
-body {
-  display: flex;
+html, body {
+  height: 100vh;
+  margin: 0;
+  overflow-y: hidden;
 }
 
-.game-container {
+/* .game-container {
   width: 500px;
   height: 730px;
   position: absolute;
   left: 80px;
+} */
+
+.game-container {
+  width: 100%;
+  height: 400px;
+  /* height: ; */
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: center;
+  align-items: center; */
+  position: relative;
+  /* position: absolute;
+  left: 80px; */
 }
 
-.border-left {
+/* .border-left {
   width: 80px;
   height: 790px;
-  /* position:  absolute;
-  background-color: white; */
+  position:  absolute;
+  background-color: white; 
   z-index: +2;
 }
 
@@ -24,46 +39,99 @@ body {
   background-color: white;
   z-index: +2;
   left: 580px;
-}
+} */
 
-.border-top {
+/* .border-top {
   width: 660px;
   height: 50px;
   position:  absolute;
   background-color: white;
   z-index: +2;
   top: -50px;
-}
+} */
 
-.sky {
+/* .sky {
   background-image: url('fb-game-background.png');
   width: 500px;
   height: 580px;
   position: absolute;
+} */
+
+.sky {
+  background-image: url('fb-game-background.png');
+  width: 100%;
+  animation: slideright 400s infinite linear;
+  -webkit-animation: slideright 400s infinite linear;
+  background-size: contain;   
+  /* display: flex; */
+  background-repeat: repeat-x;
+  /* position: absolute; */
 }
 
-.ground {
+.sky-stop {
+  background-image: url('fb-game-background.png');
+  width: 100%;
+  background-size: contain;   
+  /* display: flex; */
+  background-repeat: repeat-x;
+  /* position: absolute; */
+}
+/* .ground {
   background-image: url('bottom-background.png');
   width: 500px;
   height: 150px;
   position: absolute;
   top: 580px;
   z-index: +1;
+} */
+
+.ground {
+  background-image: url('bottom-background.png');
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  /* position: absolute;
+  top: 580px;
+  z-index: +1; */
 }
 
-.bird {
+/* .bird {
   background-image: url('flappy-bird.png');
   position: absolute;
   width: 60px;
   height: 45px;
   left: 220px;
   bottom: 100px;
+} */
+
+.bird {
+  background-image: url('flappy-bird.png');
+  position: absolute;
+  width: 10%;
+  height: 10vh;
+  background-repeat: no-repeat;
+  left: 30vh;
+  bottom: 40vh; 
 }
 
-.obstacle {
+@media only screen and (max-width: 600px) {
+  .bird {
+    background-image: url('flappy-bird.png');
+    position: absolute;
+    width: 20%;
+    height: 10vh;
+    background-repeat: no-repeat;
+    left: 30vh;
+    bottom: 40vh; 
+  }
+  
+  
+}
+  .obstacle {
   background-image: url('flappybird-pipe.png');
   width: 60px;
-  height: 300px;
+  height: 30%;
+  bottom: 0px;
   position: absolute;
 }
 
@@ -71,7 +139,8 @@ body {
   background-image: url('flappybird-pipe.png');
   transform: rotate(180deg);
   width: 60px;
-  height: 300px;
+  height: 40%;
+  top: 0px;
   position: absolute;
 }
 
@@ -94,21 +163,26 @@ body {
 }
 
 .ground-container {
-    height: 150px;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+    /* height: 150px;
     width: 580px;
     left: 80px;
-    position:  absolute;
+    position:  absolute; */
 }
 
 .ground-moving {
-  position: absolute;
+  /* height: 30vh; */
+  /* position: absolute;
   top: 580px;
-  height: 150px;
+  height: 150px; */
   background-image: url('bottom-background.png');
   background-repeat: repeat-x;
-  animation: slideright 100s infinite linear;
-  -webkit-animation: slideright 100s infinite linear;
+  background-size: contain;   
+  animation: slideright 400s infinite linear;
+  -webkit-animation: slideright 400s infinite linear;
   width: 100%;
-  z-index: +1;
+  /* z-index: +1; */
 }
 
