@@ -151,16 +151,24 @@ const App = () => {
   const startGame = () => {
     console.log('check', birdBottomRef);
     // setBirdBottom(birdBottom => birdBottom - gravity);
-    birdBottomRef.current = birdBottomRef.current - gravity;
+    birdBottomRef.current = birdBottomRef.current + gravity;
     const bird = document.querySelector(".bird");
-    bird.style.bottom = birdBottomRef.current + "px";
-    bird.style.left = birdLeftRef.current + "px";
+    if(birdBottomRef.current < 400) {
+      bird.style.transform = `translate(${birdLeftRef.current}px,${birdBottomRef.current}px)`;
+      gameTimerId = requestAnimationFrame(startGame);
+    } else {
+      cancelAnimationFrame(gameTimerId);
+    }
+    // bird.style.bottom = birdBottomRef.current + "px";
+    // bird.style.left = birdLeftRef.current + "px";
+    console.log(birdBottomRef)
   }
   useEffect(() => {
-    gameTimerId = setInterval(startGame, 30);
-    setTimeout(() => { generateObstacle() }, 1000);
+    // gameTimerId = setInterval(startGame, 10);
+    // setTimeout(() => { generateObstacle() }, 1000);
+    gameTimerId = requestAnimationFrame(startGame);
     return ()=> {
-        clearInterval(gameTimerId);
+      cancelAnimationFrame(gameTimerId);
       };
 }, []);
 
@@ -235,7 +243,7 @@ const App = () => {
             (380 - birdBottomRef.current) <= topObstacleHeight)) ||
             birdBottomRef.current === 1
       ) {
-        clearInterval(gameTimerId);
+        cancelAnimationFrame(gameTimerId);
         clearTimeout(timeOutId);
         isGameOver = true;
         console.log('yes')
@@ -262,9 +270,10 @@ const App = () => {
 
   const jump = () => {
     console.log(birdBottomRef.current)
-    if (birdBottomRef.current < 500) birdBottomRef.current += 60;
+    if (birdBottomRef.current < 500) birdBottomRef.current -= 100;
     const bird = document.querySelector(".bird");
-    bird.style.bottom = birdBottomRef.current + "px";
+    bird.style.transform = `translateY(${birdBottomRef.current}px)`;
+    // bird.style.bottom = birdBottomRef.current + "px";
     console.log(birdBottomRef.current);
   };
   return (
