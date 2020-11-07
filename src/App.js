@@ -18,6 +18,23 @@ const App = () => {
     rank: 10
     }
   };
+
+  useEffect(() => {
+    fetch('https://spotty-skunk-16.loca.lt/fetch_leaderboard', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        "userid": 121,
+        "username":"sami",
+        "level": 3,
+        "score": 30
+      })
+    })
+    .then(resp => console.log(resp));
+  });
+
   return (
     <>      
     <div className="flex flex-column">
